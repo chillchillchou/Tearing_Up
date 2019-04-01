@@ -6,7 +6,11 @@ button = Button(14)
 led = LED(4)
 
 # button.wait_for_press()
-led.on()
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
 # motor.on()
 # sleep(3)
 # led.off()
