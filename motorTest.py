@@ -1,17 +1,13 @@
 from gpiozero import OutputDevice, Button, LED
 from time import sleep
 
-motor = OutputDevice(3)
+motor = OutputDevice(4)
 button = Button(14)
-led = LED(4)
+led = LED(3)
 
-# button.wait_for_press()
-while True:
-    led.on()
-    sleep(1)
-    led.off()
-    sleep(1)
-# motor.on()
-# sleep(3)
-# led.off()
-# motor.off()
+button.wait_for_press()
+motor.on()
+led.on()
+sleep(3)
+led.off()
+motor.off()
