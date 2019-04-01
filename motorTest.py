@@ -10,5 +10,6 @@ while True:
     motor.on()
     led.on()
     button.wait_for_release()
+    print("you release the button")
     motor.off()
     led.off()
