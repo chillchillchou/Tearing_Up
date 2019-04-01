@@ -1,4 +1,5 @@
 from gpiozero import OutputDevice, Button, LED
+from time import sleep
 
 motor = OutputDevice(3)
 button = Button(14)
