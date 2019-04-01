@@ -10,7 +10,7 @@ while True:
     motor.on()
     print("turn on motor")
     led.on()
-    sleep(3)
+    sleep(20)
     led.off()
     motor.off()
     print("turn off motor")
