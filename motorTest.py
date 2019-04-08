@@ -143,7 +143,7 @@ def main():
                 pprint(response['FaceDetails'][0]['Emotions'])
                 for faceDetail in response['FaceDetails']:
                     for emotion in faceDetail['Emotions']:
-                        if emotion['Type'] == "SAD":
+                        if emotion['Type'] == "CALM":
                             if emotion['Confidence'] > 10:
                                 print("looks like you are sad")
                                 motor.on()
