@@ -145,7 +145,7 @@ def main():
                     for emotion in faceDetail['Emotions']:
                         if emotion['Type'] == "SAD":
                             if emotion['Confidence'] > 10:
-                            print("looks like you are sad")
+                                print("looks like you are sad")
             else:
                 os.system("espeak \"Seems like I don't know you, Can you tell me your name\"  --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
                 name_input = input('What is your name? ')
