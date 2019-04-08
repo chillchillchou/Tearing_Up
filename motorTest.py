@@ -140,18 +140,12 @@ def main():
                           "\" --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
                 no_emotion = True
                 pprint(response)
-                print(response['FaceDetails'][1]['Emotions'])
-                # for faceDetail in response['FaceDetails']:
-                #     for emotion in faceDetail['Emotions']:
-                #         if emotion['Confidence'] > 50:
-                #             emotion_str = str(emotion['Type'])
-                #             print("looks like you are," + emotion_str)
-                #             os.system("espeak \"Looks like you are" + emotion_str
-                #                       + "\" --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
-                #             no_emotion = False
-                # if no_emotion:
-                #     os.system(
-                #         "espeak \"Hello\"  --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
+                print(response['FaceDetails'][0]['Emotions'])
+                for faceDetail in response['FaceDetails']:
+                    for emotion in faceDetail['Emotions']:
+                        if emotion['Type'] == "SAD":
+                            if emotion['Confidence'] > 10:
+                            print("looks like you are sad")
             else:
                 os.system("espeak \"Seems like I don't know you, Can you tell me your name\"  --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
                 name_input = input('What is your name? ')
