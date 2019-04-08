@@ -125,7 +125,7 @@ def main():
         time.sleep(1)
 
         while True:  # comment this out if you ar enot using a button
-            button.wait_for_press()  # comment this out if you ar enot using a button
+            button.wait_for_press()  # comment this out if you ar not using a button
             print("pressed")
             take_picture(camera, stream)
 
@@ -139,7 +139,7 @@ def main():
                 os.system("espeak \"Hello" + str(name) +
                           "\" --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
                 no_emotion = True
-                print(response['FaceDetails']['Emotions'])
+                print(response)
                 # for faceDetail in response['FaceDetails']:
                 #     for emotion in faceDetail['Emotions']:
                 #         if emotion['Confidence'] > 50:
