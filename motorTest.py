@@ -144,7 +144,7 @@ def main():
                 for faceDetail in response['FaceDetails']:
                     for emotion in faceDetail['Emotions']:
                         if emotion['Type'] == "SAD":
-                            if emotion['Confidence'] > 20:
+                            if emotion['Confidence'] > 10:
                                 print("looks like you are sad")
                                 motor.on()
                                 print("turn on motor")
