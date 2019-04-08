@@ -139,12 +139,12 @@ def main():
                 os.system("espeak \"Hello" + str(name) +
                           "\" --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
                 no_emotion = True
-                pprint(response)
-                print(response['FaceDetails'][0]['Emotions'])
+                pprint(response['FaceDetails'][0]['Emotions'])
                 for faceDetail in response['FaceDetails']:
                     for emotion in faceDetail['Emotions']:
                         if emotion['Type'] == "SAD":
-                            if emotion['Confidence'] > 10:
+                            if emotion['Confidence'] > 20:
+                                print
                                 print("looks like you are sad")
             else:
                 os.system("espeak \"Seems like I don't know you, Can you tell me your name\"  --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
