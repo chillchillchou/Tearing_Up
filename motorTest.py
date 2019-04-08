@@ -31,6 +31,8 @@ def take_picture(camera, stream):
     # Take the actual image we want to keep
 
     camera.capture(stream, format="jpeg")
+    stream.seek(0)
+    stream.truncate()
     os.system("espeak \"Hello Hello, I am processing your pictures\"  --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
     return Image.open(stream)
     #return(file)
@@ -128,7 +130,6 @@ def main():
             button.wait_for_press()  # comment this out if you ar not using a button
             print("pressed")
             take_picture(camera, stream)
-
             name = findName(stream)
 
             if name:
@@ -144,8 +145,16 @@ def main():
                     for emotion in faceDetail['Emotions']:
                         if emotion['Type'] == "SAD":
                             if emotion['Confidence'] > 20:
-                                print
                                 print("looks like you are sad")
+                                motor.on()
+                                print("turn on motor")
+                                led.on()
+                                sleep(20)
+                                led.off()
+                                motor.off()
+                                print("turn off motor")
+
+
             else:
                 os.system("espeak \"Seems like I don't know you, Can you tell me your name\"  --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
                 name_input = input('What is your name? ')
