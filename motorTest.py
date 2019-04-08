@@ -139,7 +139,7 @@ def main():
                 os.system("espeak \"Hello" + str(name) +
                           "\" --stdout | aplay -D bluealsa:HCI=hci0,DEV=70:99:1C:07:86:EE,PROFILE=a2dp")
                 no_emotion = True
-                print(response)
+                pprint(response)
                 # for faceDetail in response['FaceDetails']:
                 #     for emotion in faceDetail['Emotions']:
                 #         if emotion['Confidence'] > 50:
