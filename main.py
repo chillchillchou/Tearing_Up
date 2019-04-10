@@ -10,8 +10,8 @@ import re
 import time
 import picamera
 
-motor = OutputDevice(4)
-button = Button(14)
+motor = OutputDevice(23)
+button = Button(4)
 led = LED(3)
 
 # connect to aws rekognition
