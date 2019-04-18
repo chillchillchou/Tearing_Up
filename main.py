@@ -12,7 +12,7 @@ import picamera
 
 motor = OutputDevice(23)
 button = Button(4)
-led = LED(3)
+led = LED(22)
 
 # connect to aws rekognition
 BUCKET = 'itpface'
